@@ -1,5 +1,7 @@
 package hu.webarticum.davidsusu.personal.sudokuthings;
 
+import java.util.Arrays;
+
 public class Model {
     
     private final int blockWidth;
@@ -35,6 +37,14 @@ public class Model {
     
     public int get(int row, int col) {
         return data[row][col];
+    }
+    
+    public int[][] getData() {
+    	int[][] copiedData = new int[data.length][data[0].length];
+    	for (int i = 0; i < data.length; i++) {
+    		copiedData[i] = Arrays.copyOf(data[i], data.length);
+    	}
+    	return copiedData;
     }
     
 }
