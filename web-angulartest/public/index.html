@@ -1,0 +1,46 @@
+<!doctype html>
+<html data-ng-app="AngularTestApp">
+<head>
+<title>Angular test</title>
+<script type="text/javascript" src="angular-1.0.7.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+
+<script type="text/ng-template" id="template.tpl">
+<p>Hello {{name}}!</p>
+</script>
+
+</head>
+<body>
+
+<div data-ng-controller="MainController">
+    <p>Text: {{text}}</p>
+    <p>
+        Input:
+        <input type="text" data-ng-model="inputValue" />
+        |
+        written value: {{inputValue}}
+    </p>
+    <p>
+        Select:
+        <select data-ng-model="selectedValue" data-ng-options="item.value as item.label for item in items">
+        </select>
+        |
+        selected value: {{selectedValue}}
+    </p>
+    <p>
+        Filter:
+        <input type="text" data-ng-model="searchText" />
+    </p>
+    <ul>
+        <li data-ng-repeat="item in items | filter:filterSearch(searchText):strict">{{item.label}}</li>
+    </ul>
+</div>
+
+<div data-ng-controller="TemplateController" data-ng-include="'template.tpl'"></div>
+
+<div data-ng-controller="TemplateController" data-ng-include="'template.tpl'" data-ng-init="name = 'World';"></div>
+
+<div data-ng-controller="DirectiveController" data-some-directive="1"></div>
+
+</body>
+</html>
