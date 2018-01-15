@@ -1,0 +1,11 @@
+apply plugin: 'java'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation 'org.sat4j:org.sat4j.core:2.3.1'
+    testImplementation 'junit:junit:4.12'
+}
+
